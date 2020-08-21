@@ -47,3 +47,9 @@ TagManager:
   - name: Objects
     uniqueID: 239286621
     locked: 0
+  - name: Move
+    uniqueID: 2744842579
+    locked: 0
+  - name: Units
+    uniqueID: 3780363877
+    locked: 0

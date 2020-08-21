@@ -51,6 +51,8 @@ public class TileData
     TileData rightTD = null;
     TileData zDownTD = null;
 
+    Hashtable permissions;
+
     public TileData(int x, int y, int z, Tilemap tm){
         this.x = x;
         this.y = y;
@@ -82,7 +84,72 @@ public class TileData
         *   TODO GJF: Here we can look at the sprite and from a dictionary set any properties for
         *       that tile.
         *******************************************************************************************/
-        
+        permissions = new Hashtable();
+        permissions["any"] = "any";
+        string[] blockingList = {
+            "gt_crop_25",
+            "gt_crop_21",
+            "gt_crop_15",
+            "gt_crop_16",
+            "gt_crop_17",
+            "gt_crop_11",
+            "gt_crop_10",
+            "gt_crop_9",
+            "gt_crop_5",
+            "gt_crop_4",
+            "gt_crop_3",
+            "gt_crop_32",
+            "gt_crop_33",
+            "gt_crop_34",
+            "gt_crop_38",
+            "gt_crop_39",
+            "gt_crop_40",
+            "gt_crop_44",
+            "gt_crop_45",
+            "gt_crop_46",
+            "gt_crop_50",
+            "gt_crop_51",
+            "gt_crop_52",
+            "wallout1a2_0",
+            "wallout1a2_1",
+            "wallout1a2_2",
+            "wallout1a2_3",
+            "wallout1a2_4",
+            "wallout1a2_5",
+            "wallout1a2_6",
+            "wallout1a2_7",
+            "wallout1a2_8",
+            "wallout1a3_0",
+            "wallout1a3_1",
+            "wallout1a3_2",
+            "wallout1a3_3",
+            "wallout1a3_4",
+            "wallout1a3_5",
+            "wallout1a3_6",
+            "wallout1a3_7",
+            "wallout1a3_8",
+            "forestTile2a_0",
+            "forestTile2a_1",
+            "forestTile2_0",
+            "forestTile2_1"
+        };
+        if(tm.GetSprite(next) != null){
+            foreach (string target in blockingList){
+                if(target.Equals(tm.GetSprite(next).name)){
+                    permissions.Remove("any");
+                }
+            }
+        }
+    }
+
+    public bool isTraversible(UnitData unit, Vector3Int source, Vector3Int destination){
+        if(permissions.ContainsKey("any")){
+            return true;
+        } else {
+            return false;
+        }
+        // TODO GJF: Extendible so that different tiles have different traversibility, but let's leave 
+        //      that out for now.
     }
 
     public void setNeighbour(TileData td){

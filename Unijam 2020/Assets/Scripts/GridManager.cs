@@ -9,6 +9,12 @@ public class GridManager : MonoBehaviour
 
     public Tilemap[] tilemaps;
 
+    public Tilemap unitTilemap;
+
+    public Tilemap moveTilemap;
+
+    public Tile moveOKSprite;
+
     public GameMap ContextManager;
 
     // Start is called before the first frame update
@@ -23,17 +29,19 @@ public class GridManager : MonoBehaviour
     }
 
     public void handleInput(){
-        if(Input.GetKeyDown(KeyCode.Return)){
+        return;
+
+        //if(Input.GetKeyDown(KeyCode.Return)){
             // Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             // Vector3Int gridCell = grid.LocalToCell(grid.WorldToCell(mouseWorldPosition));
-            Vector3Int gridCell = new Vector3Int(ContextManager.controlX, ContextManager.controlY, 0);
+            //Vector3Int gridCell = new Vector3Int(ContextManager.controlX, ContextManager.controlY, 0);
             // print(tilemaps.GetEditorPreviewTile(gridCell));
-            foreach (Tilemap tilemap in tilemaps){
-                if(tilemap.GetSprite(gridCell)){
-                    print(tilemap.name + ": " + tilemap.GetSprite(gridCell).name);
-                }
-            }
+            //foreach (Tilemap tilemap in tilemaps){
+                //if(tilemap.GetSprite(gridCell)){
+                    //print(tilemap.name + ": " + tilemap.GetSprite(gridCell).name);
+                //}
+            //}
             
-        }
+        //}
     }
 }

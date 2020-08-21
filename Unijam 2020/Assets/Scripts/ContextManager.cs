@@ -26,12 +26,34 @@ public class ContextManager : MonoBehaviour
 
     public Menu currentMenu;
 
+    public UIManager uiMan;
+
+    public UnitReference unitReference;
+
     // Start is called before the first frame update
     void Start()
     {
         gameMap.moveControlTo(gameMap.initialX, gameMap.initialY);
 
         gameMap.generateMap(this);
+
+        UnitData u = new UnitData(unitReference.GetUnitType("Sniper"));
+        u.x = 0;
+        u.y = 1;
+
+        gameMap.addUnit(this, u);
+
+        u = new UnitData(unitReference.GetUnitType("Rogue"));
+        u.x = 0;
+        u.y = 5;
+
+        gameMap.addUnit(this, u);
+
+        u = new UnitData(unitReference.GetUnitType("Sniper"));
+        u.x = 5;
+        u.y = 3;
+
+        gameMap.addUnit(this, u);
     }
 
     // Update is called once per frame
@@ -39,9 +61,16 @@ public class ContextManager : MonoBehaviour
     {
         if(gridManager != null && currentFocus == focus.MAP){
             gridManager.handleInput();
-        } 
+        }
         if(gameMap != null && currentFocus == focus.MAP){
             gameMap.handleInput(this);
+            if(gameMap.overUnit(this)){
+                UnitData unit = gameMap.getUnitDetails(this);
+                uiMan.showUnitUI(this);
+                uiMan.setUnitDataText(this, unit);
+            } else {
+                uiMan.hideUnitUI(this);
+            }
         } 
         if(chatManager != null && currentFocus == focus.CHAT) {
             chatManager.handleInput();
