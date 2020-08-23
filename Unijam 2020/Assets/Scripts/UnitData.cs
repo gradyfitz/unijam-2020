@@ -47,13 +47,11 @@ public class UnitData
     }
 
     public string toString(){
-        if(anim != null){
-            return "Unit: " + unitName + "\n" +
-                "Location: (" + x + ", " + y + ")\n";
-        } else {
-            return "Unit: " + unitName + "\n" +
-                "Location: (" + x + ", " + y + ")\n";
-        }
+        
+        return "Unit: " + this.unitName + "\n" +
+            "Location: (" + x + ", " + y + ")\n" +
+            "HP: (" + this.currHP + "/" + this.HP + ")";
+        
         
     }
 

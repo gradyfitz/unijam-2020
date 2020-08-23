@@ -106,6 +106,7 @@ public class ContextManager : MonoBehaviour
         if(! currentChatEvent && scenarioScript != null){
             // See if we have a new chat event.
             if(scenarioScript.evaluateTriggerTests(this)){
+                //Debug.Log(string.Join(" ", scenarioScript.played_state));
                 this.currentChatEvent = true;
             }
         }

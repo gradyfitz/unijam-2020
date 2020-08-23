@@ -43,8 +43,8 @@ public class GameMap : MonoBehaviour
 
     public bool commanderDefeated = false;
 
-    int[] unitsTeam;
-    int[] movesLeft;
+    public int[] unitsTeam;
+    public int[] movesLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -185,7 +185,7 @@ public class GameMap : MonoBehaviour
     void Update()
     {
         foreach(UnitData u in units.Values){
-            if(u.unitName == "NPC1" && u.HP == 0){
+            if(u.unitName == "NPC1" && u.currHP <= 0){
                 commanderDefeated = true;
             }
         }
@@ -208,10 +208,8 @@ public class GameMap : MonoBehaviour
     }
 
     public UnitData getUnitDetails(ContextManager cm){
-        UnitData unit = new UnitData();
-        unit.sprite = cm.gridManager.unitTilemap.GetSprite(new Vector3Int(controlX, controlY, 0));
-        unit.x = controlX;
-        unit.y = controlY;
+        string loc_string = controlX + "," + controlY;
+        UnitData unit = (UnitData) units[loc_string];
         return unit;
     }
 
@@ -279,7 +277,10 @@ public class GameMap : MonoBehaviour
 
     private void handleAttack(ContextManager cm, UnitData source, UnitData target){
         // TODO GJF: Battle
-
+        float rawATK = (source.currHP / (float) source.HP) * source.POW;
+        float rawDEF = (target.currHP / (float) source.HP) * source.END;
+        int rawDMG = (int) Mathf.Ceil(rawATK / (1 + rawDEF));
+        target.currHP = target.currHP - rawDMG;
     }
 
     public void moveUnitTo(ContextManager cm, UnitData unit, int newX, int newY){
@@ -310,6 +311,7 @@ public class GameMap : MonoBehaviour
                 oldX = this.unitSelected.x;
                 oldY = this.unitSelected.y;
                 moveUnitTo(cm, this.unitSelected, controlX, controlY);
+                (this.movesLeft[unitSelected.team])--;
                 // Clear moves.
                 clearMoves(cm);
                 // TODO GJF: Open Menu
@@ -317,13 +319,19 @@ public class GameMap : MonoBehaviour
             } else if(unit == this.unitSelected){
                 // 4. Self → Menu
 
+            } else if(unit.team != this.unitSelected.team){
+                // TODO GJF: This is a temporary hack because we don't have the menu stuff set up.
+                handleAttack(cm, this.unitSelected, unit);
+                (this.movesLeft[unitSelected.team])--;
+                clearMoves(cm);
+                this.unitSelected = null;
             }
             // 1. Enemy unit → No action
             // 3. Friendly unit → No action
         } else {
             // See if we can select a unit.
             UnitData unit = getUnitAtCursor();
-            if(unit != null){
+            if(unit != null && cm.teamTurn == unit.team){
                 this.unitSelected = unit;
                 generateMoveMap(cm, this.unitSelected);
                 stage = actionStage.SELECT;

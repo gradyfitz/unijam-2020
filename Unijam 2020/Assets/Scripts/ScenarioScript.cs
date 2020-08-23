@@ -55,8 +55,13 @@ public class ScenarioScript : MonoBehaviour
                     "???: “I’m so glad I made it in time Lorea. What are you going to do now?”",
                     "Lorea: “…I have to get to my home! If the Empire is invading us like this, then…”",
                     "???: “Right! Let’s leave immediately!”",
-                    "-- Scenario End --"
+                    "-- Scenario End --",
                     // Transition to scenario 2
+                    "-- Scenario End --",
+                    // --- Turn Change - Team 0 → Team 1 ---
+                    "-- Enemy Phase --",
+                    // --- Turn Change - Team 1 → Team 0 ---
+                    "-- Your Phase --"
                 };
                 string[] scenario1_sprites = {
                     /*"UIStuffExpressions1aConfident",
@@ -106,8 +111,13 @@ public class ScenarioScript : MonoBehaviour
                     //"???: “Right! Let’s leave immediately!”",
                     "UIStuffChara3G",
                     //"-- Scenario End --"
-                    null
+                    null,
                     // Transition to scenario 2
+                    // --- Turn Change - Team 0 → Team 1 ---
+                    null,
+                    null,
+                    // --- Turn Change - Team 1 → Team 0 ---
+                    null
                 };
                 bool[] scenario1_played_state = {
                     false,
@@ -130,6 +140,8 @@ public class ScenarioScript : MonoBehaviour
                     false,
                     false,
                     // End of Scenario
+                    false,
+                    false,
                     false,
                     false,
                     false,
@@ -170,21 +182,21 @@ public class ScenarioScript : MonoBehaviour
                     new Func<ContextManager, bool>((cm) => {if(! this.played_state[11]){this.played_state[11] = true; return true;} else {return false;}}),
                     // "Select your units and then a square to move to. You can attack units on the other team when you're next to them.",
                     new Func<ContextManager, bool>((cm) => {if(! this.played_state[12]){this.played_state[12] = true; return true;} else {return false;}}),
-                    // Turns > 5
-                    new Func<ContextManager, bool>((cm) => {if(! this.played_state[13] && cm.turn > 5){this.played_state[13] = true; return true;} else {return false;}}),
+                    // Turns > 3
+                    new Func<ContextManager, bool>((cm) => {if((! this.played_state[13]) && cm.turn > 3){this.played_state[13] = true; return true;} else {return false;}}),
                     // "???: “Are you OK Lorea?! I’ve come to assist you!”",
-                    new Func<ContextManager, bool>((cm) => {if(this.played_state[13] && ! this.played_state[14]){this.played_state[14] = true; Vector3Int fu = spawnGroup.getUnitGroup(cm, 3)[0].getVector3Pos(); cm.gameMap.moveControlTo(fu.x, fu.y); cm.spawnUnits(spawnGroup.getUnitGroup(cm, 3)); return true;} else {return false;}}),
+                    new Func<ContextManager, bool>((cm) => {if(this.played_state[13] && (! this.played_state[14])){this.played_state[14] = true; Vector3Int fu = spawnGroup.getUnitGroup(cm, 3)[0].getVector3Pos(); cm.gameMap.moveControlTo(fu.x, fu.y); cm.spawnUnits(spawnGroup.getUnitGroup(cm, 3)); return true;} else {return false;}}),
                     // "Empire general: “Ha! What do you think you’re doing, masked girl? The empire’s might shall not be stopped by some random stranger!”",
-                    new Func<ContextManager, bool>((cm) => {if(this.played_state[13] && ! this.played_state[15]){this.played_state[15] = true; Vector3Int fu = spawnGroup.getUnitGroup(cm, 0)[0].getVector3Pos(); cm.gameMap.moveControlTo(fu.x, fu.y); return true;} else {return false;}}),
+                    new Func<ContextManager, bool>((cm) => {if(this.played_state[13] && (! this.played_state[15])){this.played_state[15] = true; Vector3Int fu = spawnGroup.getUnitGroup(cm, 0)[0].getVector3Pos(); cm.gameMap.moveControlTo(fu.x, fu.y); return true;} else {return false;}}),
                     // End of Scenario
                     // "???: “I’m so glad I made it in time Lorea. What are you going to do now?”",
-                    new Func<ContextManager, bool>((cm) => {if(! this.played_state[16] && cm.gameMap.commanderDefeated){this.played_state[16] = true; return true;} else {return false;}}),
+                    new Func<ContextManager, bool>((cm) => {if((! this.played_state[16]) && cm.gameMap.commanderDefeated){this.played_state[16] = true; return true;} else {return false;}}),
                     // "Lorea: “…I have to get to my home! If the Empire is invading us like this, then…”",
-                    new Func<ContextManager, bool>((cm) => {if(this.played_state[16] && ! this.played_state[17] && cm.gameMap.commanderDefeated){this.played_state[17] = true; return true;} else {return false;}}),
+                    new Func<ContextManager, bool>((cm) => {if(this.played_state[16] && (! this.played_state[17]) && cm.gameMap.commanderDefeated){this.played_state[17] = true; return true;} else {return false;}}),
                     // "???: “Right! Let’s leave immediately!”",
-                    new Func<ContextManager, bool>((cm) => {if(this.played_state[16] && ! this.played_state[18] && cm.gameMap.commanderDefeated){this.played_state[18] = true; return true;} else {return false;}}),
+                    new Func<ContextManager, bool>((cm) => {if(this.played_state[16] && (! this.played_state[18]) && cm.gameMap.commanderDefeated){this.played_state[18] = true; return true;} else {return false;}}),
                     //"-- Scenario End --"
-                    new Func<ContextManager, bool>((cm) => {if(this.played_state[16] && ! this.played_state[19] && cm.gameMap.commanderDefeated){
+                    new Func<ContextManager, bool>((cm) => {if(this.played_state[16] && (! this.played_state[19]) && cm.gameMap.commanderDefeated){
                         this.played_state[19] = true; 
                         cm.postChatEvent = new Func<ContextManager, bool>((cm2) => {
                             SceneManager.LoadScene("ScenarioInformation", LoadSceneMode.Single); 
@@ -192,8 +204,10 @@ public class ScenarioScript : MonoBehaviour
                             ScenarioInfo.scenarioNum = 2;
                             return true;
                         }); 
-                        return true;} else {return false;}})
+                        return true;} else {return false;}}),
                     // Transition to scenario 2
+                    new Func<ContextManager, bool>((cm) => {if(cm.teamTurn == 0 && cm.gameMap.movesLeft[0] <= 0){cm.teamTurn = 1; cm.gameMap.movesLeft[0] = cm.gameMap.unitsTeam[0]; return true;} else {return false;}}),
+                    new Func<ContextManager, bool>((cm) => {if(cm.teamTurn == 1 && cm.gameMap.movesLeft[1] <= 0){cm.teamTurn = 0; cm.gameMap.movesLeft[1] = cm.gameMap.unitsTeam[1]; (cm.turn)++; return true;} else {return false;}})
                 };
                 Menu[] scenario1_menus = {
                     null,
@@ -216,6 +230,10 @@ public class ScenarioScript : MonoBehaviour
                     null,
                     null,
                     // End of Scenario
+                    null,
+                    null,
+                    null,
+                    null,
                     null,
                     null,
                     null,

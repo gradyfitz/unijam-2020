@@ -2155,7 +2155,7 @@ MonoBehaviour:
     - Paladin
     fromTemplateXY:
     - {x: 18, y: -16}
-    - {x: 18, y: -18}
+    - {x: 16, y: -15}
     - {x: 16, y: -19}
     - {x: 15, y: -20}
 --- !u!4 &296647573
@@ -14144,6 +14144,8 @@ MonoBehaviour:
   controlY: 0
   stage: 0
   commanderDefeated: 0
+  unitsTeam: 
+  movesLeft: 
 --- !u!4 &1924433566
 Transform:
   m_ObjectHideFlags: 0
