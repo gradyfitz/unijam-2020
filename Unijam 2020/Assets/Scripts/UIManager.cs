@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,10 +11,18 @@ public class UIManager : MonoBehaviour
 
     public Text chatText;
     public GameObject chatPanel;
+    public GameObject portrait;
+    public Image portraitImage;
 
     public Text menuText;
     public GameObject menuPanel;
     public GameObject menuSelected;
+
+    public float uiScale;
+
+    public float topChoiceDisplacement;
+
+    public Vector3 selectedArrowInitialPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +45,36 @@ public class UIManager : MonoBehaviour
     public void hideUnitUI(ContextManager cm){
         if(unitDataPanel != null){
             unitDataPanel.SetActive(false);
+        }
+    }
+
+    public void setChatSprite(Sprite s){
+        if(portraitImage != null){
+            portraitImage.sprite = s;
+        }
+    }
+
+    public void setChatText(string s){
+        if(chatText != null){
+            chatText.text = s;
+        }
+    }
+
+    public void showChatUI(ContextManager cm){
+        if(chatPanel != null){
+            chatPanel.SetActive(true);
+        }
+        if(portrait != null){
+            portrait.SetActive(true);
+        }
+    }
+
+    public void hideChatUI(ContextManager cm){
+        if(chatPanel != null){
+            chatPanel.SetActive(false);
+        }
+        if(portrait != null){
+            portrait.SetActive(false);
         }
     }
 
