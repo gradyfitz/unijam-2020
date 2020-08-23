@@ -8,7 +8,7 @@ public class Menu
     public string[] choices;
     public Func<ContextManager, bool>[] actions;
 
-    Menu(string[] choices, Func<ContextManager, bool>[] actions){
+    public Menu(string[] choices, Func<ContextManager, bool>[] actions){
         // Give the text choices
         this.choices = choices;
         // and the functions for what to do for each of those functions.
@@ -23,6 +23,7 @@ public class Menu
         if(choiceNo >= this.choices.Length){
             return false;
         }
-        return this.actions[choiceNo](cm);
+        // Reverse order so that top option is 0th choice.
+        return this.actions[getChoiceCount() - choiceNo - 1](cm);
     }
 }

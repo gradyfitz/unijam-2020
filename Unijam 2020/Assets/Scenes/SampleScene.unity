@@ -2584,9 +2584,14 @@ MonoBehaviour:
   unitDataPanel: {fileID: 929997842}
   chatText: {fileID: 1457773422}
   chatPanel: {fileID: 894338122}
+  portrait: {fileID: 0}
+  portraitImage: {fileID: 0}
   menuText: {fileID: 1951355518}
   menuPanel: {fileID: 582846950}
   menuSelected: {fileID: 554835640}
+  uiScale: 0
+  topChoiceDisplacement: 0
+  selectedArrowInitialPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &851067665
 Transform:
   m_ObjectHideFlags: 0
@@ -3005,6 +3010,8 @@ MonoBehaviour:
   maxMenuOption: 0
   uiMan: {fileID: 851067664}
   unitReference: {fileID: 937219668}
+  initialMenuState: 0
+  scenario: 1
 --- !u!4 &1478513242
 Transform:
   m_ObjectHideFlags: 0
@@ -13577,6 +13584,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951355516}
   m_CullTransparentMesh: 0
+--- !u!1 &1970439317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970439319}
+  - component: {fileID: 1970439318}
+  m_Layer: 0
+  m_Name: ScenarioScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1970439318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970439317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360dd0020daa3854ca654baa280317a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: []
+  portraits:
+  - {fileID: 21300000, guid: c87b53b20f618b240a2497110a56543f, type: 3}
+  - {fileID: 21300000, guid: 31d7ec69bf0c546488c49d28f752fa48, type: 3}
+  - {fileID: 21300000, guid: 70c307b57750ee948982fbd75cc83571, type: 3}
+  - {fileID: 21300000, guid: 7395d2b83bb7fa74ca50b7f42ce67b06, type: 3}
+  - {fileID: 21300000, guid: 72eeb253f5bd76c49a34b93145f1cc7b, type: 3}
+  - {fileID: 21300000, guid: 3a0d904f9643234478b3cc208b9a0c6a, type: 3}
+  - {fileID: 21300000, guid: 4b41ad0b5f5f3aa4a834c039c28da618, type: 3}
+  - {fileID: 21300000, guid: 79794912bc77bfb4a9842eddde0a6d0f, type: 3}
+  - {fileID: 21300000, guid: b1654b145ea850b4c9511a1f47a493a3, type: 3}
+  - {fileID: 21300000, guid: bfa9aa2d035a9f449b65cd903f6201d7, type: 3}
+  - {fileID: 21300000, guid: 72e901b15a797294c96ae92305c679f6, type: 3}
+  - {fileID: 21300000, guid: 55a19e4a048fe8842a3fccf991deb3f5, type: 3}
+  - {fileID: 21300000, guid: 1c9fd8a0fa2e8974296f780706d3955a, type: 3}
+  - {fileID: 21300000, guid: 6463b680dcd2c804b9a313818f208869, type: 3}
+  - {fileID: 21300000, guid: faa9d2b8c43536d408f704315ad2b528, type: 3}
+  - {fileID: 21300000, guid: cc41dd3afed1e2942a503bf221864594, type: 3}
+  - {fileID: 21300000, guid: fd9ae2dbc10157447a35d28ee1961336, type: 3}
+  - {fileID: 21300000, guid: a381140eb3a852949a8b0bd5765c2d7f, type: 3}
+  - {fileID: 21300000, guid: d10e986a3481bf842b7dbac343784dee, type: 3}
+  sprites: []
+  scenarioNum: 1
+  played_state: 
+--- !u!4 &1970439319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970439317}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 412.90585, y: 267.6455, z: -135.40782}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2085607380
 GameObject:
   m_ObjectHideFlags: 0
