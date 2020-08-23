@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/outside.unity
     guid: 41137666510f0a14184f1c10e80de000
+  - enabled: 1
+    path: Assets/Scenes/hometown.unity
+    guid: 41985d8387e747549a46f7deea17f1ff
+  - enabled: 1
+    path: Assets/Scenes/ScenarioInformation.unity
+    guid: 8c8b8431d71fd8e48bf7495cca6d128d
   m_configObjects: {}

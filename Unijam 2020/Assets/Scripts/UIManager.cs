@@ -86,4 +86,33 @@ public class UIManager : MonoBehaviour
     public void setUnitDataText(ContextManager cm, UnitData unit){
         unitDataText.text = "Unit Data (Raw Unit):\n" + unit.toString();
     }
+
+    public void displayMenu(ContextManager cm, Menu m){
+        cm.currentMenu = m;
+        m.nextMenu = cm.currentMenu;
+        
+        this.menuText.text = string.Join("\n\n", m.choices);
+        cm.uiMan.menuSelected.transform.position = cm.uiMan.selectedArrowInitialPosition;
+        cm.currentFocus = ContextManager.focus.MENU;
+        cm.maxMenuOption = m.actions.Length;
+        cm.currentMenuOption = cm.maxMenuOption - 1;
+    }
+
+    public void showMenuUI(){
+        if(menuPanel != null){
+            menuPanel.SetActive(true);
+        }
+    }
+
+    public void hideMenuUI(){
+        if(menuPanel != null){
+            menuPanel.SetActive(false);
+        }
+    }
+
+    public void hideSpriteUI(){
+        if(portrait != null){
+            portrait.SetActive(false);
+        }
+    }
 }

@@ -7,6 +7,7 @@ public class Menu
 {
     public string[] choices;
     public Func<ContextManager, bool>[] actions;
+    public Menu nextMenu;
 
     public Menu(string[] choices, Func<ContextManager, bool>[] actions){
         // Give the text choices

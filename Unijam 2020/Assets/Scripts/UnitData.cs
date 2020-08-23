@@ -48,12 +48,16 @@ public class UnitData
 
     public string toString(){
         if(anim != null){
-            return "Unit: " + anim.name + "\n" +
+            return "Unit: " + unitName + "\n" +
                 "Location: (" + x + ", " + y + ")\n";
         } else {
-            return "Unit: " + sprite.name + "\n" +
+            return "Unit: " + unitName + "\n" +
                 "Location: (" + x + ", " + y + ")\n";
         }
         
-    } 
+    }
+
+    public Vector3Int getVector3Pos(){
+        return new Vector3Int(this.x, this.y, 0);
+    }
 }

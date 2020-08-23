@@ -1490,11 +1490,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textArea: {fileID: 955925039}
   scenarioStrings:
-  - 'Scenario info 1
+  - 'Year 179. Kingdoms around the continents were shaken by one discovery.
 
-    Bottom Text'
+
+    POWR.
+
+
+    The
+    special pancake changed lives. Some people gained newfound abilities, called
+    magic.
+
+
+    While others, harnessed the endless amounts of energy flowing from
+    these pancakes and advanced technology rapidly.
+
+
+    The paths different kingdoms
+    took eventually lead them to being at odds with each other.
+
+
+    The finiteness
+    of POWR also made it clear that there was one thing on the table: War.
+
+
+    And
+    thus the story brings us to Lorea. A student in the Neutral Varenth Kingdom.
+
+
+    It
+    was just another day for her. The class bored her.
+
+
+    And yet, everything
+    was about to change before she knew it...
+
+'
+  - "After Lorea and her mysterious friend beat back the empire\u2019s troops, they
+    left for the west in order to check on her home. However, they needed to cross
+    the river to get there\u2026\r\nAnd it seems, behind the scenes some other party
+    has started to take notice of them. Whether Lorea and her friend can cross the
+    river is up to her wits.\r\n"
+  - "Having arrived at her hometown, Lorea and her friend are dismayed to find that
+    it is under siege by Federation troops.\r\nThe town guards are desperately trying
+    to hold the enemies back, but it is clear by the size of the enemy forces that
+    they won\u2019t hold for long against the coordinated attacks of the Federation.\r\nJust
+    when it looks like the town would fall long before Lorea gets there, someone
+    unexpected shows up...\r\n"
   sceneNames:
   - SampleScene
+  - hometown
+  - outside
 --- !u!4 &1993856508
 Transform:
   m_ObjectHideFlags: 0
@@ -1591,7 +1636,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 600723123}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.19111523
+  m_Size: 0.22313204
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -2094,6 +2094,84 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &296647571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296647573}
+  - component: {fileID: 296647572}
+  m_Layer: 0
+  m_Name: ScenarioSpawnGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &296647572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296647571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79799e854b7fa5640a3fbbcea509fd27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitGroups:
+  - units: []
+    fromTemplate:
+    - You - Exo:Fist
+    - Sniper
+    - SHIELD'R
+    fromTemplateXY:
+    - {x: -4, y: -3}
+    - {x: -1, y: -1}
+    - {x: 1, y: 1}
+  - units: []
+    fromTemplate:
+    - Guard
+    fromTemplateXY:
+    - {x: 6, y: -9}
+  - units: []
+    fromTemplate:
+    - NPC1
+    - Magic Swordsman
+    - Magic Knight
+    fromTemplateXY:
+    - {x: -3, y: -22}
+    - {x: -5, y: -22}
+    - {x: -1, y: -23}
+  - units: []
+    fromTemplate:
+    - NPC2
+    - Magic Archer
+    - Rogue
+    - Paladin
+    fromTemplateXY:
+    - {x: 18, y: -16}
+    - {x: 18, y: -18}
+    - {x: 16, y: -19}
+    - {x: 15, y: -20}
+--- !u!4 &296647573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296647571}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &365507416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,11 +2550,11 @@ RectTransform:
   m_Father: {fileID: 582846951}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 10}
   m_SizeDelta: {x: 48, y: 48}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &554835642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,8 +3018,8 @@ MonoBehaviour:
   unitDataPanel: {fileID: 929997842}
   chatText: {fileID: 1457773422}
   chatPanel: {fileID: 894338122}
-  portrait: {fileID: 0}
-  portraitImage: {fileID: 0}
+  portrait: {fileID: 2117308861}
+  portraitImage: {fileID: 2117308863}
   menuText: {fileID: 1951355518}
   menuPanel: {fileID: 582846950}
   menuSelected: {fileID: 554835640}
@@ -3145,22 +3223,152 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitTypes:
   - sprite: {fileID: 0}
-    anim: {fileID: 11400000, guid: cbe77cf112a61e443b27eb79f338cafb, type: 2}
-    unitName: Rogue
-    HP: 5
+    anim: {fileID: 11400000, guid: 09fefa52a4f867b469f4205eb019c104, type: 2}
+    unitName: S.A.S.U
+    HP: 10
     MP: 5
     ammo: 0
-    STR: 1
-    VIT: 1
-    MAG: 1
+    STR: 20
+    VIT: 10
+    MAG: 20
+    SPD: 5
+    END: 14
+    POW: 20
+    team: 0
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: a5af2e0fe18eb2d4a9f1fe3692d720c0, type: 2}
+    unitName: G.O.L.E.M
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 20
+    VIT: 10
+    MAG: 20
     SPD: 3
-    END: 1
-    POW: 1
+    END: 17
+    POW: 20
+    team: 0
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 10941f5096239b94cbf56592003c49b0, type: 2}
+    unitName: Gun Mech
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 20
+    VIT: 10
+    MAG: 20
+    SPD: 6
+    END: 12
+    POW: 20
     team: 0
   - sprite: {fileID: 0}
     anim: {fileID: 11400000, guid: 06dd22985086ddb458ad62fb0370d91a, type: 2}
     unitName: Sniper
-    HP: 5
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 22
+    VIT: 10
+    MAG: 22
+    SPD: 3
+    END: 10
+    POW: 22
+    team: 0
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 23b9c031fe2dc5d4eae7104c79d44d60, type: 2}
+    unitName: SHIELD'R
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 0
+    VIT: 10
+    MAG: 0
+    SPD: 3
+    END: 17
+    POW: 0
+    team: 0
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: f8ee420c180f4b347a1606fdafabd6d7, type: 2}
+    unitName: Magic Swordsman
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 19
+    VIT: 10
+    MAG: 19
+    SPD: 5
+    END: 13
+    POW: 19
+    team: 1
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 284209f9379f7dc45bfb08dd31c3b3fd, type: 2}
+    unitName: Magic Knight
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 20
+    VIT: 10
+    MAG: 20
+    SPD: 5
+    END: 17
+    POW: 20
+    team: 1
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: cbe77cf112a61e443b27eb79f338cafb, type: 2}
+    unitName: Rogue
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 25
+    VIT: 10
+    MAG: 25
+    SPD: 6
+    END: 7
+    POW: 25
+    team: 1
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 50dcdf598408c344584bf479b0cb135a, type: 2}
+    unitName: Paladin
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 15
+    VIT: 10
+    MAG: 15
+    SPD: 3
+    END: 15
+    POW: 15
+    team: 1
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 0841041db3019cc47b2161e0055cfe57, type: 2}
+    unitName: You - Exo:Fist
+    HP: 10
+    MP: 0
+    ammo: 2
+    STR: 24
+    VIT: 10
+    MAG: 24
+    SPD: 6
+    END: 18
+    POW: 10
+    team: 0
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 980e9b3d599d49c4fb2d59815c14fac3, type: 2}
+    unitName: Guard
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 1
+    VIT: 10
+    MAG: 1
+    SPD: 2
+    END: 2
+    POW: 2
+    team: 0
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 231bb98ab5197bd49a27fd2a470be225, type: 2}
+    unitName: NPC1
+    HP: 10
     MP: 5
     ammo: 2
     STR: 1
@@ -3169,6 +3377,84 @@ MonoBehaviour:
     SPD: 2
     END: 2
     POW: 2
+    team: 1
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 1f68c5ffb27914741978480288a9676a, type: 2}
+    unitName: NPC2
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 1
+    VIT: 1
+    MAG: 1
+    SPD: 2
+    END: 2
+    POW: 2
+    team: 1
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 7dc26663d5c0a8044a69e66d3a6e3e60, type: 2}
+    unitName: NPC3
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 1
+    VIT: 1
+    MAG: 1
+    SPD: 2
+    END: 2
+    POW: 2
+    team: 1
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 980e9b3d599d49c4fb2d59815c14fac3, type: 2}
+    unitName: NPC4
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 1
+    VIT: 1
+    MAG: 1
+    SPD: 2
+    END: 2
+    POW: 2
+    team: 1
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 231bb98ab5197bd49a27fd2a470be225, type: 2}
+    unitName: Matchlocke Girl
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 1
+    VIT: 1
+    MAG: 1
+    SPD: 2
+    END: 2
+    POW: 2
+    team: 1
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: c7bff53630cdf9d4988c2a304a52ca6b, type: 2}
+    unitName: Girl
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 1
+    VIT: 1
+    MAG: 1
+    SPD: 2
+    END: 2
+    POW: 2
+    team: 1
+  - sprite: {fileID: 0}
+    anim: {fileID: 11400000, guid: 72a0686a3b5218843833a14e394a53e0, type: 2}
+    unitName: Magic Archer
+    HP: 10
+    MP: 5
+    ammo: 2
+    STR: 21
+    VIT: 10
+    MAG: 21
+    SPD: 5
+    END: 11
+    POW: 21
     team: 1
 --- !u!4 &937219669
 Transform:
@@ -3277,16 +3563,16 @@ RectTransform:
   m_GameObject: {fileID: 1457773420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 894338123}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 54252, y: 7425}
-  m_SizeDelta: {x: 1096, y: 150}
-  m_Pivot: {x: 1, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1457773422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3309,10 +3595,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -3368,6 +3654,10 @@ MonoBehaviour:
   unitReference: {fileID: 937219668}
   initialMenuState: 0
   scenario: 1
+  currentChatEvent: 0
+  scenarioScript: {fileID: 1970439318}
+  turn: 0
+  teamTurn: 0
 --- !u!4 &1478513242
 Transform:
   m_ObjectHideFlags: 0
@@ -3605,7 +3895,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 17
-      m_TileSpriteIndex: 40
+      m_TileSpriteIndex: 46
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5972,7 +6262,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 17
-      m_TileSpriteIndex: 28
+      m_TileSpriteIndex: 30
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5990,7 +6280,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 17
-      m_TileSpriteIndex: 40
+      m_TileSpriteIndex: 30
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6269,7 +6559,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 17
-      m_TileSpriteIndex: 30
+      m_TileSpriteIndex: 31
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -12722,7 +13012,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 12
-      m_TileSpriteIndex: 25
+      m_TileSpriteIndex: 47
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -13457,19 +13747,19 @@ Tilemap:
     m_Data: {fileID: -347939226359990736, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
   - m_RefCount: 400
     m_Data: {fileID: -5614179837545909306, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 4995634724967287918, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: -7840292590133249445, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 6818858050647694241, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
-  - m_RefCount: 5
+  - m_RefCount: 4
     m_Data: {fileID: -1409509257453289045, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
   - m_RefCount: 14
     m_Data: {fileID: -3645981714305418493, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
-  - m_RefCount: 14
+  - m_RefCount: 15
     m_Data: {fileID: -4771676675712733421, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 3
     m_Data: {fileID: 2550286975157159804, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
   - m_RefCount: 12
     m_Data: {fileID: 5265613539645165368, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
@@ -13487,22 +13777,22 @@ Tilemap:
     m_Data: {fileID: -7668554966181341635, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 9001547536741390775, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 1
     m_Data: {fileID: -4257874988014055830, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 4995634724967287918, guid: 108926ffedb77244abe5b2b4ff8f5365, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 5730025979912241504, guid: a22ddee2310f523408c2d928c2145440, type: 3}
   - m_RefCount: 51
@@ -13853,6 +14143,7 @@ MonoBehaviour:
   controlX: 0
   controlY: 0
   stage: 0
+  commanderDefeated: 0
 --- !u!4 &1924433566
 Transform:
   m_ObjectHideFlags: 0
@@ -13899,11 +14190,11 @@ RectTransform:
   m_Father: {fileID: 582846951}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 20, y: 0}
-  m_SizeDelta: {x: 160, y: 150}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 20, y: -5}
+  m_SizeDelta: {x: 160, y: 145}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1951355518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13931,7 +14222,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 6
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -14004,9 +14295,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fd9ae2dbc10157447a35d28ee1961336, type: 3}
   - {fileID: 21300000, guid: a381140eb3a852949a8b0bd5765c2d7f, type: 3}
   - {fileID: 21300000, guid: d10e986a3481bf842b7dbac343784dee, type: 3}
+  - {fileID: 21300000, guid: 3ca024032b9a8e0438c8caca8fc02efe, type: 3}
+  - {fileID: 21300000, guid: f8cfb384bf836e646ba2a2c22437f52a, type: 3}
+  - {fileID: 21300000, guid: 3c02657509e382843b745bff9f12d50f, type: 3}
+  - {fileID: 21300000, guid: 0425d324b1fb3b64bb95c45c3a39cfe1, type: 3}
+  - {fileID: 21300000, guid: 822727a4ad8119042b4afdbde617b0fd, type: 3}
+  - {fileID: 21300000, guid: 47ab42d9f3cd9f24791886db964ccef2, type: 3}
   sprites: []
   scenarioNum: 1
   played_state: 
+  spawnGroup: {fileID: 296647572}
 --- !u!4 &1970439319
 Transform:
   m_ObjectHideFlags: 0

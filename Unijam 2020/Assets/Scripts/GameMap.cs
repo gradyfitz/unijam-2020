@@ -41,9 +41,20 @@ public class GameMap : MonoBehaviour
 
     private ArrayList moveOptions;
 
+    public bool commanderDefeated = false;
+
+    int[] unitsTeam;
+    int[] movesLeft;
+
     // Start is called before the first frame update
     void Start()
     {
+        unitsTeam = new int[2];
+        unitsTeam[0] = 0;
+        unitsTeam[1] = 0;
+        movesLeft = new int[2];
+        movesLeft[0] = 0;
+        movesLeft[1] = 0;
         tiles = new int[mapSizeX, mapSizeY];
         tileObjects = new GameObject[mapSizeX, mapSizeY];
         for(int x = 0; x < mapSizeX; x++){
@@ -173,11 +184,17 @@ public class GameMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        foreach(UnitData u in units.Values){
+            if(u.unitName == "NPC1" && u.HP == 0){
+                commanderDefeated = true;
+            }
+        }
     }
 
     public void addUnit(ContextManager cm, UnitData u){
         string loc_string = u.x + "," + u.y;
+        (unitsTeam[u.team])++;
+        (movesLeft[u.team])++;
         units[loc_string] = u;
         cm.gridManager.unitTilemap.SetTile(new Vector3Int(u.x, u.y, 0), u.anim);
     }
